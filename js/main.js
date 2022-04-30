@@ -11,6 +11,9 @@ fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
         // reverse the data (so that we get the earliest earthquake first)
         data.features.reverse()
 
+        // iterate over the array
+        
+
 
     });
 
