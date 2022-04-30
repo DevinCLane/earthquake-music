@@ -41,6 +41,12 @@ function start() {
     });
 }
 /* to do
-Use setInterval() to do everything after a fixed delay. It will call the code over and over.
+map magnitude to the font size
+map the magnitude to change volume
+think about a different synth
+think about different notes
+think about effects
+display the earthquakes on the map
+map pitch to data
 
 */
