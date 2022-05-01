@@ -46,7 +46,7 @@ async function start() {
         i++;
     }
 }
-<<<<<<< HEAD
+
 /* to do
 map magnitude to the font size
 map the magnitude to change volume
@@ -55,13 +55,4 @@ think about different notes
 think about effects
 display the earthquakes on the map
 map pitch to data
-=======
->>>>>>> redo
-
-
-/*
-to do:
-- convert time into seconds
-- place each earthquake on a timeline between 0 and 60 seconds
-- reverse their order
 */
