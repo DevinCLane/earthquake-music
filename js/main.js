@@ -23,7 +23,7 @@ async function start() {
     // loop over the array
     for (const feature of features) {
         // calculate the time since the first earthquake
-        const diffFromStart = feature.properties.time = features[0].properties.time;
+        const diffFromStart = feature.properties.time - features[0].properties.time;
         
         feature.playtime = diffFromStart / (24 * 60 * 1000)
         console.log(feature.playtime);
