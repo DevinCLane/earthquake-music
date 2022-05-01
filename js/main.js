@@ -1,45 +1,52 @@
-// let earthquakes = null;
+// use an async function to minimize nesting
+async function start() {
+    // request the earthquakes 
+    const url =
+        'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson';
+    
+    // use destructuring assignment to get the features property
+    const { features } = await fetch(url).then((res) => res.json()); // parse response as JSON
+    
+    // reverse the features array to get them in chronological order
+    features.reverse();
+    console.log(features);
 
+    // this is where we'll place the earthquake data in the DOM
+    const earthquakeDisplay = document.getElementById('earthquake-data');
 
-function start() {
-    fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson')
-    .then(res => res.json()) // parse response as JSON
-    .then(data => {
-    console.log(data)
-    //   earthquakes = data;
-        data.features.reverse();
-            //create a synth and connect it to the main output (your speakers)
-            const synth = new Tone.Synth().toDestination();
-        let notes = ['C4', 'D4', 'E4', 'G4', 'A4', 'C5'];
-        let i = 0;
+    // Create a synth using tone.js and connect it to the main output (computer speakers)
+    const synth = new Tone.Synth().toDestination();
+    // the notes that we will play through
+    const notes = ["C4", "D4", "E4", "G4", "A4", "C5"];
+    // set up a counter variable
+    let i = 0;
+    // loop over the array
+    for (const feature of features) {
+        // calculate the time since the first earthquake
+        const diffFromStart = feature.properties.time - features[0].properties.time;
         
-        data.features.forEach(feature => {
-            let diffFromStart = feature.properties.time - data.features[0].properties.time
-            feature.playtime = diffFromStart / (24 * 60 * 1000); // multiplies 24 hours by 60 minutes by 1000 to make it not miliseconds
-            console.log(feature.playtime)
-            let earthquakeDisplay = document.getElementById('earthquake-data')
-            setTimeout((noteValue) => {
-                let li = document.createElement('li');
-                li.innerText = feature.properties.place;
-                earthquakeDisplay.appendChild(li)
-                window.scrollTo(0, document.body.scrollHeight)
-                console.log(feature)
-            //play a middle 'C' for the duration of an 8th note
-            console.log(noteValue)
-            console.log(notes[noteValue % notes.length])
-            synth.triggerAttackRelease(notes[noteValue % notes.length], "32n");
-            }, feature.playtime * 1000, i);
-            i++
-            
-            
-    })
-    console.log(data)
+        feature.playtime = diffFromStart / (24 * 60 * 1000)
+        console.log(feature.playtime);
 
-    })
-    .catch(err => {
-        console.log(`error ${err}`)
-    });
+        setTimeout(
+            (noteValue) => {
+                const li = document.createElement('li');
+                li.innerText = feature.properties.place;
+                earthquakeDisplay.appendChild(li);
+                window.scrollTo(0, document.body.scrollHeight);
+                console.log(feature);
+                console.log(noteValue);
+                console.log(notes[noteValue % notes.length]);
+                // play a note
+                synth.triggerAttackRelease(notes[noteValue % notes.length], '32n');
+            },
+            feature.playtime * 1000,
+            i
+        );
+        i++;
+    }
 }
+<<<<<<< HEAD
 /* to do
 map magnitude to the font size
 map the magnitude to change volume
@@ -48,5 +55,13 @@ think about different notes
 think about effects
 display the earthquakes on the map
 map pitch to data
+=======
+>>>>>>> redo
 
+
+/*
+to do:
+- convert time into seconds
+- place each earthquake on a timeline between 0 and 60 seconds
+- reverse their order
 */
