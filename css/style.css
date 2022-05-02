@@ -6,12 +6,15 @@ main {
   text-align: center;
 }
 
+
+
 .logo {
   max-width: 10rem;
 }
 
 #map { 
-  height: 25rem;
+  height: 50rem;
+  border-radius: 0.5rem;
 }
 
 
@@ -24,6 +27,7 @@ button {
   border: 1px solid #e8e8e8;
   color: #090909;
   padding: 0.7rem 1.7rem;
+  margin: 1rem;
   font-size: 1.2rem;
   border-radius: 0.5rem;
   background: #e8e8e8;
