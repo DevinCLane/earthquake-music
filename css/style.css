@@ -1,25 +1,18 @@
 * { 
   box-sizing: border-box;
 }
-/* 
-body {
-  min-height: 100vh;
-}  */
 
 main {
-  margin: 0 auto;
   text-align: center;
 }
 
-/* main p {
-  margin: 3em;
+.logo {
+  max-width: 10rem;
 }
 
-button {
-  margin-bottom: 1em;
-} */
-
-/* Buttons */
+#map { 
+  height: 25rem;
+}
 
 
 /* 
