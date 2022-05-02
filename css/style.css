@@ -1,22 +1,23 @@
 * { 
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
-
+/* 
 body {
   min-height: 100vh;
-} 
+}  */
 
 main {
   margin: 0 auto;
-  width: 960px;
   text-align: center;
+}
+
+/* main p {
+  margin: 3em;
 }
 
 button {
   margin-bottom: 1em;
-}
+} */
 
 /* Buttons */
 
@@ -25,20 +26,21 @@ button {
 adapted from 
 https://cssbuttons.io/detail/ke1221/ancient-walrus-24
 */
+
 button {
   border: 1px solid #e8e8e8;
   color: #090909;
-  padding: 0.7em 1.7em;
-  font-size: 18px;
-  border-radius: 0.5em;
+  padding: 0.7rem 1.7rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
   background: #e8e8e8;
   transition: all .3s;
-  box-shadow: 6px 6px 12px #c5c5c5,
-              -6px -6px 12px #ffffff;
+  box-shadow: .05rem .05rem .5rem #c5c5c5,
+              -.05rem -.05rem .5rem #ffffff;
 }
 
 button:active {
   color: #666;
-  box-shadow: inset 4px 4px 12px #c5c5c5,
-              inset -4px -4px 12px #ffffff;
+  box-shadow: inset 0.25rem 0.25rem 0.75rem #c5c5c5,
+              inset -0.25rem -0.25rem 0.75rem #ffffff;
 }
