@@ -7,12 +7,22 @@
 
 		<title>Earthquake music</title>
 
+		
 		<!-- favicon -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
 
+		<!-- font awesome -->
+		<script src="https://kit.fontawesome.com/99490b5402.js" crossorigin="anonymous"></script>
+
+		<!-- Leaflet CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+		integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+		crossorigin=""/>
+		
+		
 		<!-- external CSS link https://github.com/kevquirk/simple.css -->
 		<!-- Minified version -->
 		<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
@@ -45,17 +55,33 @@
 
 		<!-- import tone.js -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.js" integrity="sha512-Zu1QIDG6ZacL9zSX9Ynyvdp45DP/FDTX40ci1RakZ6qvonbA+foQleFvqwa2lnsCE01P5QyXkj662EAwDFhrTw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+	
 	</head>
 	<body>
 		<main>
 			<h1>Earthquake music</h1>
-			<p><img src="/android-chrome-192x192.png" alt="world"></p>
+			<section><img class="logo" src="/android-chrome-192x192.png" alt="world"></section>
 
-			<button type="button" name="button" onclick="start()">Make music 🌎</button>
+			<button id="start" type="button" name="button" onclick="start()">Make music 🌎</button>
+			<button id="stop" type="button" name="button" onclick="stop()">Stop</button>
+			<div id="map"></div>
 	
 			<ul id="earthquake-data"></ul>
-		</main>
 
+			<section class="share">
+				<p><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Check out this song based on earthquake data!" data-url="https://earthquakemusic.netlify.app/" data-via="DevinCLane" data-show-count="false">Share on Twitter <i class="fa-brands fa-twitter"></i></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+			</section>
+		</main>
+		<footer>
+			Made with care and attention by <a href="https://www.devinlane.com/" target="_blank">Devin Lane</a> 
+			<p><a href="https://github.com/DevinCLane/earthquake-music" target="_blank">Source <i class="fa-brands fa-github"></i></a></p>
+		</footer>
+		
+		<!-- leaflet JS -->
+		<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+		integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+		crossorigin=""></script>
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>

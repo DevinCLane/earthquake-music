@@ -1,3 +1,22 @@
+// Leaflet map
+
+// initialize map
+let map = L.map('map').setView([30, -98], 4);
+
+// add the OpenStreetMap tiles
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
+
+// show the scale bar on the lower left corner
+L.control.scale({imperial: true, metric: true}).addTo(map);
+
+// stop everything
+function stop() {
+    window.location.reload();
+}
+
 // use an async function to minimize nesting
 async function start() {
     // request the earthquakes 
@@ -7,12 +26,11 @@ async function start() {
     // use destructuring assignment to get the features property
     const { features } = await fetch(url).then((res) => res.json()); // parse response as JSON
     
+
+
     // reverse the features array to get them in chronological order
     features.reverse();
     console.log(features);
-
-    // this is where we'll place the earthquake data in the DOM
-    const earthquakeDisplay = document.getElementById('earthquake-data');
 
     // Create a synth using tone.js and connect it to the main output (computer speakers)
     const synth = new Tone.Synth().toDestination();
@@ -30,10 +48,10 @@ async function start() {
 
         setTimeout(
             (noteValue) => {
-                const li = document.createElement('li');
-                li.innerText = feature.properties.place;
-                earthquakeDisplay.appendChild(li);
-                window.scrollTo(0, document.body.scrollHeight);
+                // create geoJSON layer
+                var myLayer = L.geoJSON(feature).addTo(map);
+                // add the coordinates of the earthquake to the map
+                myLayer.addData(feature.geometry.coordinates);
                 console.log(feature);
                 console.log(noteValue);
                 console.log(notes[noteValue % notes.length]);
@@ -46,6 +64,7 @@ async function start() {
         i++;
     }
 }
+
 
 /* to do
 map magnitude to the font size
