@@ -12,10 +12,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // show the scale bar on the lower left corner
 L.control.scale({imperial: true, metric: true}).addTo(map);
 
-// show a marker on the map
-L.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(map);
-
-
 // stop everything
 function stop() {
     window.location.reload();
@@ -30,12 +26,11 @@ async function start() {
     // use destructuring assignment to get the features property
     const { features } = await fetch(url).then((res) => res.json()); // parse response as JSON
     
+
+
     // reverse the features array to get them in chronological order
     features.reverse();
     console.log(features);
-
-    // this is where we'll place the earthquake data in the DOM
-    const earthquakeDisplay = document.getElementById('earthquake-data');
 
     // Create a synth using tone.js and connect it to the main output (computer speakers)
     const synth = new Tone.Synth().toDestination();
@@ -53,10 +48,10 @@ async function start() {
 
         setTimeout(
             (noteValue) => {
-                const li = document.createElement('li');
-                li.innerText = feature.properties.place;
-                earthquakeDisplay.appendChild(li);
-                window.scrollTo(0, document.body.scrollHeight);
+                // create geoJSON layer
+                var myLayer = L.geoJSON(feature).addTo(map);
+                // add the coordinates of the earthquake to the map
+                myLayer.addData(feature.geometry.coordinates);
                 console.log(feature);
                 console.log(noteValue);
                 console.log(notes[noteValue % notes.length]);
