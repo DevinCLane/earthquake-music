@@ -3,13 +3,12 @@
 }
 
 main {
+  padding-top: 0;
   text-align: center;
 }
 
-
-
 .logo {
-  max-width: 10rem;
+  max-width: 5rem;
 }
 
 #map { 
@@ -27,7 +26,7 @@ button {
   border: 1px solid #e8e8e8;
   color: #090909;
   padding: 0.7rem 1.7rem;
-  margin: 1rem;
+  margin: 1rem 0 2rem 0;
   font-size: 1.2rem;
   border-radius: 0.5rem;
   background: #e8e8e8;
