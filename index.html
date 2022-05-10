@@ -61,14 +61,17 @@
 	<body>
 		<main>
 			<h1>Earthquake music</h1>
-			<section><img class="logo" src="/android-chrome-192x192.png" alt="world"></section>
-
-			<button id="start" type="button" name="button" onclick="start()">Make music 🌎</button>
-			<button id="stop" type="button" name="button" onclick="stop()">Stop</button>
+			<!-- Logo -->
+			<section class="top-area"><img class="logo" src="/android-chrome-192x192.png" alt="world">
+				<div class="transport">
+					<button id="start" type="button" name="button" onclick="start()">Make music 🌎</button>
+					<button id="stop" type="button" name="button" onclick="stop()">Stop</button>
+				</div>
+			</section>
+			<!-- leaflet map -->
 			<div id="map"></div>
-	
-			<ul id="earthquake-data"></ul>
-
+			
+			<!-- Share section -->
 			<section class="share">
 				<p><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Check out this song based on earthquake data!" data-url="https://earthquakemusic.netlify.app/" data-via="DevinCLane" data-show-count="false">Share on Twitter <i class="fa-brands fa-twitter"></i></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 			</section>

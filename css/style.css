@@ -7,6 +7,10 @@ main {
   text-align: center;
 }
 
+main h1 {
+  margin-bottom: 1rem;
+}
+
 .logo {
   max-width: 5rem;
 }
@@ -16,6 +20,12 @@ main {
   border-radius: 0.5rem;
 }
 
+.top-area {
+  border-bottom: none;
+  border-top: none;
+  padding-bottom: .5rem;
+  margin: .5rem 0;
+}
 
 /* 
 adapted from 
