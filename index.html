@@ -61,21 +61,30 @@
 	<body>
 		<main>
 			<h1>Earthquake music</h1>
-			<section><img class="logo" src="/android-chrome-192x192.png" alt="world"></section>
-
-			<button id="start" type="button" name="button" onclick="start()">Make music 🌎</button>
-			<button id="stop" type="button" name="button" onclick="stop()">Stop</button>
+			<!-- Logo -->
+			<section class="top-area"><img class="logo" src="/android-chrome-192x192.png" alt="world">
+				<div class="transport">
+					<button id="start" type="button" name="button" onclick="start()">Make music 🌎</button>
+					<button id="stop" type="button" name="button" onclick="stop()">Stop</button>
+				</div>
+			</section>
+			<!-- leaflet map -->
 			<div id="map"></div>
-	
-			<ul id="earthquake-data"></ul>
-
+			<!-- what is this? -->
+			<section class="what">
+				<h2>What is this?</h2>
+				<p>One day of earthquakes in one minute.</p>
+				<p>Earthquake Music pulls the last day of earthquakes in the US from the <a href="https://earthquake.usgs.gov/earthquakes/map/" target="_blank">U.S. Geological Survey</a>, compresses them to one minute, and plays their magnitude as musical frequency.</p>
+				<p>For example, a 1.83 magnitude earthquake would have a pitch of 197hz.</p>
+			</section>
+			<!-- share -->
 			<section class="share">
-				<p><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Check out this song based on earthquake data!" data-url="https://earthquakemusic.netlify.app/" data-via="DevinCLane" data-show-count="false">Share on Twitter <i class="fa-brands fa-twitter"></i></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+				<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Check out this song based on earthquake data!" data-url="https://earthquakemusic.netlify.app/" data-via="DevinCLane" data-show-count="false">Share on Twitter <i class="fa-brands fa-twitter"></i></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</section>
 		</main>
 		<footer>
 			Made with care and attention by <a href="https://www.devinlane.com/" target="_blank">Devin Lane</a> 
-			<p><a href="https://github.com/DevinCLane/earthquake-music" target="_blank">Source <i class="fa-brands fa-github"></i></a></p>
+			<p><a href="https://github.com/DevinCLane/earthquake-music" target="_blank">View source code <i class="fa-brands fa-github"></i></a></p>
 		</footer>
 		
 		<!-- leaflet JS -->
