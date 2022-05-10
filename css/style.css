@@ -27,6 +27,22 @@ main h1 {
   margin: .5rem 0;
 }
 
+.what {
+  border-bottom: none;
+  margin-bottom: .5rem;
+  padding-bottom: .5rem;
+}
+
+.share {
+  margin: .2rem 0;
+  padding-bottom: .2rem;
+  border-bottom: none;
+}
+
+body > footer {
+  margin-top: 2rem;
+}
+
 /* 
 adapted from 
 https://cssbuttons.io/detail/ke1221/ancient-walrus-24
